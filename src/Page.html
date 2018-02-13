@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+  <head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <?!= include('Stylesheet'); ?>
+  </head>
+  <body>
+    <header>
+      <p>こんにちは <strong><?= userEmail ?></strong> さん</p>
+    </header>
+    <main>
+      <h1>konjac-bot</h1>
+      <p>
+        <? if (slackUser) { ?>
+        <a href="javascript:void(0)" onclick="google.script.run.revoke()">Slack連携済み (@<?= slackUser ?>) | 解除</a>
+        <? } else { ?>
+        <a href="<?= authorizationUrl ?>">Slack連携</a>
+        <? } ?>
+      </p>
+    </main>
+  </body>
+</html>
